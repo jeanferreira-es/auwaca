@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1078686026308",
+    "project_id": "auwaca",
+    "storage_bucket": "auwaca.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1078686026308:android:1b0f81d589b25fe29a4a11",
+        "android_client_info": {
+          "package_name": "br.com.auwaca"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1078686026308-kr43g7cv71rh2835ts2ja8dkkitn30cj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_eBAChUesBSsRw-6A94GAICeBkTQYzvw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1078686026308-kr43g7cv71rh2835ts2ja8dkkitn30cj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

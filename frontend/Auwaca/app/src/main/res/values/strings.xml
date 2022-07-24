@@ -2,7 +2,7 @@
     <string name="app_name">Auwaca</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_notifications">Notificações</string>
     <string name="home_first_section">Última atividade</string>
     <string name="home_second_section">Registro semanal</string>
     <string name="description_second_section">Veja aqui um resumo semanal das condições de umidade do solo.</string>
@@ -10,5 +10,6 @@
     <string name="notification_button_title">Ativar regador</string>
     <string name="notification_title">Está na hora de irrigar sua orta.</string>
     <string name="squad1_description">menor pico de umidade</string>
-    <string name="squad2_description">umidade média</string>
+    <string name="squad2_description">umidade\nmédia</string>
+    <string name="no_notifications">não há nenhuma notificação</string>
 </resources>
