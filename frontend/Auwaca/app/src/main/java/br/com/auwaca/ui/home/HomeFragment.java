@@ -1,9 +1,11 @@
 package br.com.auwaca.ui.home;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -19,6 +21,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import org.w3c.dom.Text;
+
+import java.text.DateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 import br.com.auwaca.R;
 import br.com.auwaca.databinding.FragmentHomeBinding;
@@ -36,6 +43,11 @@ public class HomeFragment extends Fragment {
     TextView descCardHome;
     TextView percMenorPico;
     TextView percUmidadeMedia;
+    TextView cardDate;
+    TextView cardTitle;
+
+    Button wcButton;
+    int status = 0;
 
     private DatabaseReference mDatabase;
     private FirebaseDatabase database;
@@ -54,6 +66,17 @@ public class HomeFragment extends Fragment {
         descCardHome = (TextView) root.findViewById(R.id.descCardHomeId);
         percMenorPico = root.findViewById(R.id.percMenorPicoId);
         percUmidadeMedia = root.findViewById(R.id.percUmidadeMediaId);
+        cardDate = root.findViewById(R.id.cardDateId);
+        cardTitle = root.findViewById(R.id.cardTitleId);
+
+        wcButton = root.findViewById(R.id.wcButtonId);
+
+        wcButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                handleClick(wcButton);
+            }
+        });
 
 //        final TextView textView = binding.textHome;
 //        homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
@@ -62,24 +85,33 @@ public class HomeFragment extends Fragment {
 
         database = FirebaseDatabase.getInstance();
 
-
         System.out.println("DADOS DO FIREBASE");
 //        mDatabase = FirebaseDatabase.getInstance().getReference();
         mDatabase = database.getReference().child("auwaca");
 
-        mDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
+        mDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Sensor sensor = new Sensor(snapshot.child("status").getValue(String.class), snapshot.child("statusMotor").getValue(Integer.class), snapshot.child("statusNivel").getValue(Integer.class));
-
+                Sensor sensor = new Sensor(snapshot.child("status").getValue(String.class), snapshot.child("statusMotor").getValue(Integer.class), Integer.parseInt(snapshot.child("statusNivel").getValue(String.class)));
                 Resumo resumo = new Resumo(0,0);
 
                 int res =  (1024-sensor.getStatusNivel())*100/1024;
-                String desc = descCardHome.getText()+" "+res+"%.";
+                String desc = res+"%";
                 descCardHome.setText(desc);
+                cardTitle.setText(sensor.getStatus());
+                wcButton.setText(sensor.getStatusMotor() == 1 ? "DESATIVAR REGADOR" : "ATIVAR REGADOR");
+                status = sensor.getStatusMotor();
 
-                percMenorPico.setText(resumo.getMenorPico().toString());
-                percUmidadeMedia.setText(resumo.getUmidadeMedia().toString());
+                Calendar c = Calendar.getInstance();
+                Date date = c.getTime();
+                Locale brasil = new Locale("pt","BR");
+                DateFormat brFormat = DateFormat.getDateInstance(DateFormat.FULL,brasil);
+
+                Date data = new Date();
+                cardDate.setText(String.valueOf(brFormat.format(date)));
+
+                percMenorPico.setText(resumo.getMenorPico().toString()+"%");
+                percUmidadeMedia.setText(resumo.getUmidadeMedia().toString()+"%");
             }
 
             @Override
@@ -89,6 +121,13 @@ public class HomeFragment extends Fragment {
         });
 
         return root;
+    }
+
+    public void handleClick(View view){
+//        mDatabase = database.getReference().child("auwaca");
+        mDatabase.child("statusMotor").setValue(status == 1 ? 0 : 1);
+        status = status == 1 ? 0 : 1;
+
     }
 
     @Override

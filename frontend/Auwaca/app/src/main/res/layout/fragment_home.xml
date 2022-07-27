@@ -40,21 +40,41 @@
             android:orientation="vertical">
 
             <TextView
-                style="@style/text"
+                android:id="@+id/cardTitleId"
+                style="@style/title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/notification_title"
+                android:text="Moderado"
                 android:textColor="@color/white"/>
 
-            <TextView
-                android:id="@+id/descCardHomeId"
-                style="@style/text"
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/notification_description"
-                android:textColor="@color/white"/>
+                android:layout_gravity="center_vertical">
+
+                <TextView
+                    style="@style/text"
+                    android:layout_centerInParent="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/notification_description"
+                    android:textColor="@color/oliva" />
+
+                <TextView
+                    android:id="@+id/descCardHomeId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:padding="@dimen/margin"
+                    android:text="0%"
+                    android:textSize="@dimen/text_extra_large"
+                    android:textStyle="bold"
+                    android:textColor="@color/oliva"/>
+            </RelativeLayout>
 
             <TextView
+                android:id="@+id/cardDateId"
                 style="@style/text"
                 android:textSize="@dimen/text_small"
                 android:layout_width="match_parent"
@@ -157,5 +177,11 @@
                 </LinearLayout>
             </GridLayout>
         </LinearLayout>
+        <Button
+            android:id="@+id/wcButtonId"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Ativar regador"
+            />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
