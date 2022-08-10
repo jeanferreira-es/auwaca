@@ -12,4 +12,6 @@
     <string name="squad1_description">menor pico de umidade</string>
     <string name="squad2_description">umidade\nmédia</string>
     <string name="no_notifications">não há nenhuma notificação</string>
+    <string name="diario">diário</string>
+    <string name="semanal">semanal</string>
 </resources>

@@ -1,10 +1,10 @@
 package br.com.auwaca.models;
 
-public class Resumo {
+public class Registro {
     private Integer menorPico;
     private Integer umidadeMedia;
 
-    public Resumo(Integer menorPico, Integer umidadeMedia) {
+    public Registro(Integer menorPico, Integer umidadeMedia) {
         this.menorPico = menorPico;
         this.umidadeMedia = umidadeMedia;
     }
