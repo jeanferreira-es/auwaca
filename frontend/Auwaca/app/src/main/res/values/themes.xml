@@ -28,7 +28,7 @@
     </style>
 
     <style name="percent_value">
-        <item name="android:textSize">@dimen/text_extra_large</item>
+        <item name="android:textSize">@dimen/percent</item>
         <item name="android:textColor">@color/black_translucent</item>
         <item name="android:textStyle">bold</item>
     </style>

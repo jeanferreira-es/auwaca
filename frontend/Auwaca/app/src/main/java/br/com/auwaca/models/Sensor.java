@@ -4,6 +4,7 @@ public class Sensor {
     private String status;
     private Integer statusMotor;
     private Integer statusNivel;
+    private Integer dividendo;
 
     public Sensor(String status, Integer statusMotor, Integer statusNivel) {
         this.status = status;
@@ -33,5 +34,13 @@ public class Sensor {
 
     public void setStatusNivel(Integer statusNivel) {
         this.statusNivel = statusNivel;
+    }
+
+    public Integer getDividendo() {
+        return dividendo;
+    }
+
+    public void setDividendo(Integer dividendo) {
+        this.dividendo = dividendo;
     }
 }

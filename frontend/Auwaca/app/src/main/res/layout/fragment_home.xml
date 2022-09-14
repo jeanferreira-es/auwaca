@@ -31,13 +31,13 @@
             android:text="@string/home_first_section"/>
 
         <LinearLayout
+            android:id="@+id/realTimeCard_id"
             android:background="@drawable/card"
             android:layout_width="match_parent"
             android:layout_marginHorizontal="@dimen/cardMargin"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/margin"
             android:elevation="@dimen/elevation"
-            android:backgroundTint="@color/dark_green"
             android:orientation="vertical">
 
             <TextView
@@ -55,6 +55,7 @@
                 android:layout_gravity="center_vertical">
 
                 <TextView
+                    android:id="@+id/realTimeCardDesc_id"
                     style="@style/text"
                     android:layout_centerInParent="true"
                     android:layout_alignParentLeft="true"
@@ -88,7 +89,7 @@
                     android:layout_height="50dp"
                     android:fontFamily="@font/montserrat"
                     android:textSize="12dp"
-                    android:textColor="@color/dark_green"
+                    android:textColor="@color/black"
                     android:backgroundTint="@color/white"
                     android:textStyle="bold"
                     android:text="Ativar regador" />
@@ -169,7 +170,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/montserrat"
                         android:textColor="@color/dark_brown"
-                        android:text="8%"/>
+                        android:text="58%"/>
 
                     <TextView
                         android:layout_width="match_parent"
